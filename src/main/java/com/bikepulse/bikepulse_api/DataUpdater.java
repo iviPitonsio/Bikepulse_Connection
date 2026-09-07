@@ -30,7 +30,7 @@ public class DataUpdater {
 	}
 
 	/** Funcion con la que actualizamos los datos de la BD*/
-	@Scheduled(fixedRate = 5, initialDelay = 5, timeUnit = TimeUnit.MINUTES) // programamos la actualizacion de datos
+	@Scheduled(fixedRate = 10, initialDelay = 10, timeUnit = TimeUnit.MINUTES) // programamos la actualizacion de datos
 	public void updateData() {
 		
 		try {
