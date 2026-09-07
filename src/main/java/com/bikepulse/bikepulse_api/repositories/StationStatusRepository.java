@@ -11,7 +11,7 @@ import javax.sql.DataSource;
 
 import org.springframework.stereotype.Repository;
 
-import station.StationStatus;
+import com.bikepulse.bikepulse_api.stationData.StationStatus;
 
 @Repository
 public class StationStatusRepository {
@@ -26,14 +26,14 @@ public class StationStatusRepository {
 	}
 	
 	
-	/** Funcion que devuelve los datos del estado de una estacion en concreto*/
+	/** Funcion que devuelve los datos del estado de una estacion en concreto (lo limitamos a los ultimos 30 registros)*/
 	public List<StationStatus> stationStatus (int stationId){
 		
 		List<StationStatus> statuses = new ArrayList<StationStatus>(); // creamos la lista con todos los datos de cada estado de las estaciones
 		
 		try(Connection stationConnection = database.getConnection();
 				PreparedStatement getStatus = stationConnection.prepareStatement 
-					("select fecha, bicis_averiadas, bicis_disponibles, huecos_averiados, huecos_disponibles, esta_alquilando, esta_instalada, esta_devolviendo, id_estacion from registro_estacion where id_estacion = ?;")){ // escribimos la consulta
+					("select fecha, bicis_averiadas, bicis_disponibles, huecos_averiados, huecos_disponibles, esta_alquilando, esta_instalada, esta_devolviendo, id_estacion from registro_estacion where id_estacion = ? order by fecha desc limit 30;")){ // escribimos la consulta
 					
 			getStatus.setInt(1, stationId); // Asignamos al where de la consulta el id concreto
 			

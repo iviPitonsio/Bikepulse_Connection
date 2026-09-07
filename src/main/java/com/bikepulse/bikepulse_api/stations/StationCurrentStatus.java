@@ -7,6 +7,8 @@ public class StationCurrentStatus {
 	private String name;
 	private int stationId;
 	private int availableBikes;
+	private int availableDocks;
+	private int capacity;
 	private boolean renting;
 	private boolean returning;
 	private Timestamp date;
@@ -26,6 +28,14 @@ public class StationCurrentStatus {
 	
 	public int getAvailableBikes() {
 		return availableBikes;
+	}
+	
+	public int getAvailableDocks() {
+		return availableDocks;
+	}
+	
+	public int getCapacity() {
+		return capacity;
 	}
 	
 
@@ -54,6 +64,14 @@ public class StationCurrentStatus {
 
 	public void setVehiclesAvailable(int availableBikes) {
 		this.availableBikes = availableBikes;
+	}
+	
+	public void setDocksAvailable(int availableDocks) {
+		this.availableDocks = availableDocks;
+	}
+	
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
 	}
 	
 	public void setRenting(boolean renting) {

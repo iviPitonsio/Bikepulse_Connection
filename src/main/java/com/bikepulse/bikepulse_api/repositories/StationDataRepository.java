@@ -71,7 +71,7 @@ private DataSource database;
 		try(Connection stationConnection = database.getConnection();
 				
 			PreparedStatement getStation = stationConnection.prepareStatement 
-				("select nombre, bicis_disponibles, esta_alquilando, esta_devolviendo, fecha, e.id_estacion from estacion e join registro_estacion r on(r.id_estacion = e.id_estacion) "
+				("select nombre, bicis_disponibles, huecos_disponibles, capacidad, esta_alquilando, esta_devolviendo, fecha, e.id_estacion from estacion e join registro_estacion r on(r.id_estacion = e.id_estacion) "
 						+ "join(select id_estacion, max(fecha) as \"ultima_fecha\" from registro_estacion where id_estacion = ?) as ultimos on \r\n"
 						+ "(r.fecha = ultimos.ultima_fecha and r.id_estacion = ultimos.id_estacion)")){ 
 					
@@ -143,6 +143,8 @@ private DataSource database;
 		stationCurrent.setRenting(result.getBoolean("esta_alquilando")); // alquiler
 		stationCurrent.setReturning(result.getBoolean("esta_devolviendo")); // devolucion 
 		stationCurrent.setDate(result.getTimestamp("fecha")); // fecha
+		stationCurrent.setDocksAvailable(result.getInt("huecos_disponibles")); // huecos disponibles
+		stationCurrent.setCapacity(result.getInt("capacidad")); // huecos disponibles
 		
 		return stationCurrent;
 		

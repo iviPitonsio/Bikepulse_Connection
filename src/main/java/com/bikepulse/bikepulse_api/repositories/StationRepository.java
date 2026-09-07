@@ -7,9 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import station.LocalizedName;
-import station.Station;
 import org.springframework.stereotype.Repository;
+
+import com.bikepulse.bikepulse_api.stationData.LocalizedName;
+import com.bikepulse.bikepulse_api.stationData.Station;
+
 import javax.sql.DataSource;
 
 @Repository
