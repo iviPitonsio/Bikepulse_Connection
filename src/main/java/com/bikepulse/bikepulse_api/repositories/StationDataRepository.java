@@ -72,7 +72,7 @@ private DataSource database;
 				
 			PreparedStatement getStation = stationConnection.prepareStatement 
 				("select nombre, bicis_disponibles, huecos_disponibles, capacidad, esta_alquilando, esta_devolviendo, fecha, e.id_estacion from estacion e join registro_estacion r on(r.id_estacion = e.id_estacion) "
-						+ "join(select id_estacion, max(fecha) as \"ultima_fecha\" from registro_estacion where id_estacion = ?) as ultimos on \r\n"
+						+ "join(select id_estacion, max(fecha) as \"ultima_fecha\" from registro_estacion where id_estacion = ? group by id_estacion) as ultimos on \r\n"
 						+ "(r.fecha = ultimos.ultima_fecha and r.id_estacion = ultimos.id_estacion)")){ 
 					
 			getStation.setInt(1, stationId); // asignamos el ID de la estacion de la que queramos hacer la consulta
