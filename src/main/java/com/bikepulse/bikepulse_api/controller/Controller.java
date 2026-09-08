@@ -2,7 +2,6 @@ package com.bikepulse.bikepulse_api.controller;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +18,6 @@ import com.bikepulse.bikepulse_api.stations.StationSummary;
 import utils.BikeEnum;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4321") // Permitimos que este puerto en concreto acceda a los datos
 public class Controller {
 	
 	private StationRepository stationRepo;
