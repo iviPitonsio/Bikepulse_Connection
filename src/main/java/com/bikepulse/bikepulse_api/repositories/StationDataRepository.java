@@ -98,7 +98,7 @@ private DataSource database;
 		try(Connection stationConnection = database.getConnection();
 				
 				PreparedStatement getStation = stationConnection.prepareStatement 
-					("select count(e.id_estacion) as \"estaciones_totales\", count(case when esta_instalada = 1 then e.id_estacion end) as \"estaciones_activas\" , sum(bicis_disponibles) as \"bicis_totales\", sum(huecos_disponibles) as \"huecos_totales\", sum(capacidad) as \"capacidad_total\" "
+					("select count(e.id_estacion) as \"estaciones_totales\", count(case when esta_instalada = true then e.id_estacion end) as \"estaciones_activas\" , sum(bicis_disponibles) as \"bicis_totales\", sum(huecos_disponibles) as \"huecos_totales\", sum(capacidad) as \"capacidad_total\" "
 							+ "from estacion e join registro_estacion r on(r.id_estacion = e.id_estacion) join (select id_estacion, max(fecha) as \"ultima_fecha\" from registro_estacion group by id_estacion) as ultimos on\r\n"
 							+ "(r.fecha = ultimos.ultima_fecha and r.id_estacion = ultimos.id_estacion);")){ 
 
