@@ -52,7 +52,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 			// Construimos la solicitud para todas las APIs
 				HttpRequest request = HttpRequest.newBuilder()
 						.uri(URI.create(url))
-					    .timeout(java.time.Duration.ofSeconds(5))
+					    .timeout(java.time.Duration.ofSeconds(30)) //tiempo que damos para obtener los datos
 					    .GET()
 					    .build();
 
