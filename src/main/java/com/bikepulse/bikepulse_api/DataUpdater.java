@@ -2,9 +2,7 @@ package com.bikepulse.bikepulse_api;
 
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.bikepulse.bikepulse_api.database.StationDatabase;
@@ -13,8 +11,8 @@ import com.bikepulse.bikepulse_api.stationData.Station;
 import com.bikepulse.bikepulse_api.stationData.StationStatus;
 
 import com.bikepulse.bikepulse_api.bikepulse.BikeApiClient;
-import jakarta.annotation.PostConstruct;
 import utils.Mapping;
+
 
 /** Clase que se encargara de actualizar cada cierto tiempo los datos de las estaciones*/
 @Service
@@ -30,7 +28,6 @@ public class DataUpdater {
 	}
 
 	/** Funcion con la que actualizamos los datos de la BD*/
-	@Scheduled(fixedRate = 10, initialDelay = 10, timeUnit = TimeUnit.MINUTES) // programamos la actualizacion de datos
 	public void updateData() {
 		
 		try {
@@ -56,8 +53,4 @@ public class DataUpdater {
 		}
 	}
 	
-	@PostConstruct /** Solo cuando Spring este listo, se ejecutara la actualizacion de datos*/
-	public void executeUpdate() {
-		updateData();
-	}
 }

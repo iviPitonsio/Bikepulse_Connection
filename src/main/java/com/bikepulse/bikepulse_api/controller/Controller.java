@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bikepulse.bikepulse_api.DataUpdater;
 import com.bikepulse.bikepulse_api.repositories.StationDataRepository;
 import com.bikepulse.bikepulse_api.repositories.StationRepository;
 import com.bikepulse.bikepulse_api.repositories.StationStatusRepository;
@@ -23,12 +25,14 @@ public class Controller {
 	private StationRepository stationRepo;
 	private StationStatusRepository statusRepo;
 	private StationDataRepository dataRepo;
+	private DataUpdater dataUpdater;
 	
 	// Constructor que recibe la informacion que hemos obtenido en la consulta SQL
-	public Controller(StationRepository repoStation, StationStatusRepository repoStatus, StationDataRepository repoData) {
+	public Controller(StationRepository repoStation, StationStatusRepository repoStatus, StationDataRepository repoData, DataUpdater dataUpdater) {
 		stationRepo = repoStation;
 		statusRepo = repoStatus;
 		dataRepo = repoData;
+		this.dataUpdater = dataUpdater;
 	}
 
 
@@ -92,6 +96,12 @@ public class Controller {
 	public List<StationBikes> getStationRanking() {
 		
 		return dataRepo.selectBikeStations(BikeEnum.RANKING);
+	}
+	
+	/** Solo cuando Spring este listo, se ejecutara la actualizacion de datos*/
+	@PostMapping("/update")
+	public void updateData() {
+	    dataUpdater.updateData();
 	}
 	
 }
