@@ -1,6 +1,6 @@
-# Bikepulse API
+# Bikepulse Connection
 
-API REST que consume los datos del sistema de bicicletas públicas **BiciCoruña** (A Coruña) a través del estándar **GBFS** (General Bikeshare Feed Specification), los almacena en una base de datos **PostgreSQL** y los expone mediante endpoints HTTP para su consumo por parte de la aplicación frontend de Bikepulse.
+Proyecto que consiste en una API REST que consume los datos del sistema de bicicletas públicas **BiciCoruña** (A Coruña) a través del estándar **GBFS** (General Bikeshare Feed Specification), los almacena en una base de datos **PostgreSQL** y los expone mediante endpoints HTTP para su consumo por parte de la aplicación frontend de Bikepulse.
 
 ---
 
@@ -17,14 +17,14 @@ API REST que consume los datos del sistema de bicicletas públicas **BiciCoruña
 
 ## Tecnologías
 
-| Java 17 |
-| Spring Boot 4.1.1 |
-| PostgreSQL |
-| Spring Data JDBC 4.1.1 |
-| Spring Web MVC 4.1.1 |
-| Jackson Databind 2.22.2 |
-| Maven |
-| Docker 21 |
+- Java 17
+- Spring Boot 4.1.1
+- PostgreSQL
+- Spring Data JDBC 4.1.1
+- Spring Web MVC 4.1.1
+- Jackson Databind 2.22.2 
+- Maven
+- Docker 21 
 
 ---
 
