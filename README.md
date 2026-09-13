@@ -17,14 +17,14 @@ API REST que consume los datos del sistema de bicicletas públicas **BiciCoruña
 
 ## Tecnologías
 
-| Java 17 |
-| Spring Boot 4.1.1 |
-| PostgreSQL |
-| Spring Data JDBC 4.1.1 |
-| Spring Web MVC 4.1.1 |
-| Jackson Databind 2.22.2 |
-| Maven |
-| Docker 21 |
+- Java 17
+- Spring Boot 4.1.1
+- PostgreSQL
+- Spring Data JDBC 4.1.1
+- Spring Web MVC 4.1.1
+- Jackson Databind 2.22.2 
+- Maven
+- Docker 21 
 
 ---
 
